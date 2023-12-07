@@ -1,0 +1,27 @@
+﻿@page "/hello"
+<PageTitle>Sumando 2 numeros</PageTitle>
+<EditForm Model="@this" OnValidSubmit="AddNumbers" class="d-flex justify-content-center">
+    <div class="container vw-40">
+        <h1>Suma de 2 Numeros</h1>
+        <div class="form-group">
+            <label>Primer numero:</label>
+            <InputNumber @bind-Value="Number1" class="form-control"/>
+        </div>
+        <div class="form-group">
+        <label>Segundo numero:</label>
+        <InputNumber @bind-Value="Number2"  class="form-control"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Sumar</button>
+    </div>
+</EditForm>
+        <p>Resultado = @Result</p>
+@code {
+    public int Number1 { get; set; }
+    public int Number2 { get; set; }
+    public int Result { get; set; }
+
+    public void AddNumbers()
+    {
+        Result = Number1 + Number2;
+    }
+}
